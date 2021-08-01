@@ -1,5 +1,31 @@
+import { Link } from 'react-router-dom';
+import classes from './Navbar.module.css';
+import logo from '../../assets/logo-myshop.png';
+import { FaBars } from 'react-icons/fa';
+import { links } from '../../utils/constants';
+import CartButtons from '../CartButtons/CartButtons';
+
 const Navbar = () => {
-    return <h2>Navbar</h2>
+    return <nav className={classes.navbar}>
+        <div className={classes['nav-center']}>
+            <div className={classes['nav-header']}>
+                <Link to='/'>
+                    <img src={logo} alt='my-shop'/>
+                </Link>
+                <button className={classes['nav-toggle']}>
+                    <FaBars /> 
+                </button>
+            </div>
+            <ul className={classes['nav-links']}>
+                {links.map(link => (
+                    <li key={link.id}>
+                        <Link to={link.url}>{link.text}</Link>
+                    </li>
+                ))}
+            </ul>
+            <CartButtons />
+        </div>
+    </nav>
 }
 
 export default Navbar;
