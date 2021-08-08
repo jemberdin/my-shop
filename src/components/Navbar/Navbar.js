@@ -4,15 +4,18 @@ import logo from '../../assets/logo-myshop.png';
 import { FaBars } from 'react-icons/fa';
 import { links } from '../../utils/constants';
 import CartButtons from '../CartButtons/CartButtons';
+import { useProductsContext } from '../../context/products-context';
 
 const Navbar = () => {
+    const { openSidebar } = useProductsContext();
+
     return <nav className={classes.navbar}>
         <div className={classes['nav-center']}>
             <div className={classes['nav-header']}>
                 <Link to='/'>
                     <img src={logo} alt='my-shop'/>
                 </Link>
-                <button className={classes['nav-toggle']}>
+                <button className={classes['nav-toggle']} onClick={openSidebar}>
                     <FaBars /> 
                 </button>
             </div>

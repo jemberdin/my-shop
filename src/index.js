@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
+import { ProductsProvider } from './context/products-context';
 
 const app = (
   <BrowserRouter>
-    <App />
+    <ProductsProvider>
+      <App />
+    </ProductsProvider>
   </BrowserRouter>
 );
 
