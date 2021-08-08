@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import classes from './ErrorPage.module.css';
 
 const ErrorPage = () => {
-    return <main className={`${'page-100'} ${classes['wrapper']}`}>
+    return <main className={`${'page-100'} ${classes.wrapper}`}>
         <section>
             <h1>404</h1>
             <h3>Sorry, the page you tried cannot be found</h3>

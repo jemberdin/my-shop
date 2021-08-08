@@ -1,5 +1,10 @@
+import { PageHero } from '../../components';
+
 const CheckoutPage = () => {
-    return <h2>Checkout page</h2>
+    return <main>
+        <PageHero title='checkout'/>
+        <div className='page'></div>
+    </main>
 }
 
 export default CheckoutPage;
