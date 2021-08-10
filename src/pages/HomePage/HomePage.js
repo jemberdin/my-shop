@@ -1,5 +1,11 @@
+import { FeaturedProducts, Hero, Services, Contacts } from "../../components";
 const HomePage = () => {
-    return <h2>Home page</h2>
+    return <main>
+        <Hero />
+        <FeaturedProducts />
+        <Services />
+        <Contacts />
+    </main>
 }
 
 export default HomePage;
