@@ -1,4 +1,5 @@
-import { FeaturedProducts, Hero, Services, Contacts } from "../../components";
+import { FeaturedProducts, Hero, Services, Contacts } from '../../components';
+
 const HomePage = () => {
     return <main>
         <Hero />
