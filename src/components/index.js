@@ -7,6 +7,11 @@ import PageHero from './PageHero/PageHero';
 import FeaturedProducts from './FeaturedProducts/FeaturedProducts';
 import Hero from './Hero/Hero';
 import Services from './Services/Services';
+import Error from './Error/Error';
+import Loading from './Loading/Loading';
+import ProductImages from './ProductImages/ProductImages';
+import Stars from './Stars/Stars';
+import AddToCart from './AddToCart/AddToCart';
 
 export {
   Navbar,
@@ -18,4 +23,9 @@ export {
   Sidebar,
   PageHero,
   Services,
+  Error,
+  Loading,
+  ProductImages, 
+  Stars,
+  AddToCart
 }

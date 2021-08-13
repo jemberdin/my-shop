@@ -1,6 +1,5 @@
 import { useProductsContext } from '../../context/products-context';
-import Error from '../Error/Error';
-import Loading from '../Loading/Loading';
+import { Error, Loading } from '../../components';
 import Product from '../Product/Product';
 import classes from './FeaturedProducts.module.css';
 
