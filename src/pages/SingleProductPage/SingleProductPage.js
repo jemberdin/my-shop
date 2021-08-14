@@ -45,7 +45,7 @@ const SingleProductPage = () => {
         //reviews, 
         id: sku, 
         company, 
-        //images 
+        images 
     } = singleProduct;
 
     return (
@@ -54,7 +54,7 @@ const SingleProductPage = () => {
             <div className='section section-center page'>
                 <Link to='/products' className='btn'>back to products</Link>
                 <div className={classes['product-center']}>
-                    <ProductImages />
+                    <ProductImages images ={images}/>
                     <section className={classes.content}>
                         <h2>{name}</h2>
                         <Stars />
