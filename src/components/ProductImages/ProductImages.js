@@ -9,7 +9,7 @@ const ProductImages = ({images = [{url:''}]}) => {
         <div className={classes.gallery}>
             {images.map((image, index) => (
                 <img 
-                    key={image.filename} 
+                    key={index} 
                     src={image.url} 
                     alt={image.filename}
                     className={classes[`${image.url === mainImage.url && 'active'}`]}
