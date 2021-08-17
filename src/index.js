@@ -4,11 +4,14 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import { ProductsProvider } from './context/products-context';
+import { FilterProvider } from './context/filter-context';
 
 const app = (
   <BrowserRouter>
     <ProductsProvider>
-      <App />
+      <FilterProvider>
+        <App />
+      </FilterProvider>
     </ProductsProvider>
   </BrowserRouter>
 );
