@@ -12,6 +12,10 @@ import Loading from './Loading/Loading';
 import ProductImages from './ProductImages/ProductImages';
 import Stars from './Stars/Stars';
 import AddToCart from './AddToCart/AddToCart';
+import Filters from './Filters/Filters';
+import Sort from './Sort/Sort';
+import ProductsList from './ProductsList/ProductsList';
+import GridView from './GridView/GridView';
 
 export {
   Navbar,
@@ -27,5 +31,9 @@ export {
   Loading,
   ProductImages, 
   Stars,
-  AddToCart
+  AddToCart, 
+  Filters,
+  Sort,
+  ProductsList,
+  GridView
 }
