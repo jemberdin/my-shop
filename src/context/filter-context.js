@@ -13,6 +13,7 @@ export const FilterProvider = (props) => {
     const initialState = {
         filteredProducts: [],
         allProducts: [],
+        gridView: true,
     };
     const { products } = useProductsContext();
     const [state, dispatch] = useReducer(reducer, initialState);
