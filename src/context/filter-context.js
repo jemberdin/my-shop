@@ -87,5 +87,5 @@ export const FilterProvider = (props) => {
 }
 
 export const useFilterContext = () => {
-    return useContext(FilterContext)
+    return useContext(FilterContext);
 }

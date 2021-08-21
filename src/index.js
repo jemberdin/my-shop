@@ -5,12 +5,15 @@ import './index.css';
 import App from './App';
 import { ProductsProvider } from './context/products-context';
 import { FilterProvider } from './context/filter-context';
+import { CartProvider } from './context/cart-context';
 
 const app = (
   <BrowserRouter>
     <ProductsProvider>
       <FilterProvider>
-        <App />
+        <CartProvider>
+          <App />
+        </CartProvider>
       </FilterProvider>
     </ProductsProvider>
   </BrowserRouter>
