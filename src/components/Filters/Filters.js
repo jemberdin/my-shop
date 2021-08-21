@@ -24,7 +24,7 @@ const Filters = () => {
     const companies = getUniqueValues(allProducts, 'company');
     const colors = getUniqueValues(allProducts, 'colors');
 
-    return <section className={classes.wrapper}>
+    return <section>
         <div className={classes.content}>
             <form onSubmit={e => e.preventDefault()}>
                 <div className={classes['form-control']}>
@@ -45,7 +45,7 @@ const Filters = () => {
                                 key={c}
                                 name='category'
                                 onClick={updateFilters}
-                                className={category === c.toLowerCase() ? `${classes.active}` : null}
+                                className={category === c.toLowerCase() ? `${classes.btn} ${classes.active}` : `${classes.btn}`}
                             >
                                 {c}
                             </button>    
@@ -76,7 +76,7 @@ const Filters = () => {
                                 key='all'
                                 onClick={updateFilters}
                                 data-color='all'
-                                className={color === 'all' ? `${classes['all-btn']} ${classes.active}` : `${classes['all-btn']}`}
+                                className={color === 'all' ? `${classes.btn} ${classes['all-btn']} ${classes.active}` : `${classes.btn} ${classes['all-btn']}`}
                             >
                                 all
                             </button>}
@@ -117,7 +117,7 @@ const Filters = () => {
                     </input>
                 </div>
             </form>
-            <button className={classes['clear-btn']} onClick={clearFilters}> clear filters</button>
+            <button className={`${classes.btn} ${classes['clear-btn']}`} onClick={clearFilters}> clear filters</button>
         </div>
     </section>
 }
