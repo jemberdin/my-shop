@@ -18,7 +18,7 @@
   text-transform: capitalize;
 }
 
-button {
+.wrapper button {
   display: block;
   margin: 0.25em 0;
   padding: 0.25rem 0;
@@ -31,7 +31,7 @@ button {
   cursor: pointer;
 }
 
-.active {
+.wrapper .active {
   border-color: var(--clr-grey-5);
 }
 
@@ -47,7 +47,7 @@ button {
   align-items: center;
 }
 
-.color-btn {
+.wrapper .color-btn {
   display: inline-block;
   width: 1rem;
   height: 1rem;
@@ -67,7 +67,7 @@ button {
   color: var(--clr-white);
 }
 
-.all-btn {
+.wrapper .all-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,7 +75,7 @@ button {
   opacity: 0.5;
 }
 
-.active {
+.wrapper .active {
   opacity: 1;
 }
 
@@ -96,7 +96,7 @@ button {
   font-size: 1rem;
 }
 
-.clear-btn {
+.wrapper .clear-btn {
   background: var(--clr-red-dark);
   color: var(--clr-white);
   padding: 0.25rem 0.5rem;

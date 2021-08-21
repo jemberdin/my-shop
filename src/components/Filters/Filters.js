@@ -24,7 +24,7 @@ const Filters = () => {
     const companies = getUniqueValues(allProducts, 'company');
     const colors = getUniqueValues(allProducts, 'colors');
 
-    return <section>
+    return <section className={classes.wrapper}>
         <div className={classes.content}>
             <form onSubmit={e => e.preventDefault()}>
                 <div className={classes['form-control']}>
