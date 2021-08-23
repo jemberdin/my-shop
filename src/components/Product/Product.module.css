@@ -42,20 +42,20 @@
   opacity: 1;
 }
 
-footer {
+.footer {
   margin-top: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-footer h5,
-footer p {
+.footer h5,
+.footer p {
   margin-bottom: 0;
   font-weight: 400;
 }
 
-footer p {
+.footer p {
   color: var(--clr-primary-5);
   letter-spacing: var(--spacing);
 }
