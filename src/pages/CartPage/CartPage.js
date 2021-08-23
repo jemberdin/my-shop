@@ -8,7 +8,7 @@ import { CartContent } from '../../components';
 const CartPage = () => {
     const {cart} = useCartContext();
 
-    if (cart.length > 10) { 
+    if (cart.length < 1) { 
         return <main className='page-100'> 
             <div className={classes.empty}>
                 <h2>You cart is empty</h2>
@@ -19,7 +19,7 @@ const CartPage = () => {
     return (
         <Fragment>
             <PageHero title='cart'/>
-            <main classname='page'>
+            <main className='page'>
                 <CartContent />
             </main>
         </Fragment>

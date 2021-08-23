@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { FaCheck } from 'react-icons/fa';
 import { useState } from 'react';
 import classes from './AddToCart.module.css';
-import AmountButtons from '../AmountButtons/AmountButtons';
+import { AmountButtons } from '../../components';
 import { useCartContext } from '../../context/cart-context';
 
 const AddToCart = ({product}) => {
