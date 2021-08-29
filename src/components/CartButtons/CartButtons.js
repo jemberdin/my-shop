@@ -18,9 +18,11 @@ const CartButtons = (props) => {
                 </span>
             </span>
         </Link>
-        <button className={classes['auth-btn']}>
-            Login <FaUserPlus />
-        </button>
+        <Link to='auth'>
+            <button className={classes['auth-btn']}>
+                Login <FaUserPlus />
+            </button>
+        </Link>
     </div>
 }
  

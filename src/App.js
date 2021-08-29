@@ -1,6 +1,6 @@
 import { Route, Switch } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
-import { Home, About, Cart, Products, SingleProduct, Error, Checkout } from './pages';
+import { Home, About, Cart, Products, SingleProduct, Error, Checkout, Auth } from './pages';
 
 function App() {
   return (
@@ -11,6 +11,9 @@ function App() {
         </Route>
         <Route path='/about' >
           <About />
+        </Route>
+        <Route path='/auth'>
+          <Auth />
         </Route>
         <Route path='/cart'>
           <Cart />

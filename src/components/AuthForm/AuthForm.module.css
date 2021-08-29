@@ -1,0 +1,50 @@
+.wrapper {
+  max-width: 22rem;
+  margin: 0 auto;
+  border: 1px solid var(--clr-grey-8);
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-align: center;
+}
+
+.control {
+  margin-bottom: 0.5rem;
+}
+
+.control label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.control input {
+  width: 100%;
+  padding: 0.5rem;
+  background: var(--clr-grey-10);
+  border-radius: var(--radius);
+  border-color: transparent;
+}
+
+.actions {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn {
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+}
+
+.toggle-btn {
+  cursor: pointer;
+  margin-top: 1rem;
+  background-color: transparent;
+  color: var(--clr-primary-2);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+}
