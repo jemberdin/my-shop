@@ -1,8 +1,45 @@
 import classes from './AuthForm.module.css';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+
+const isEmpty = value => value.trim() === '';
+const isEmailValid = email => /\S+@\S+\.\S+/.test(email);
+const isPasswordValid = password => password.trim().length >= 5;
 
 const AuthForm = () => {
     const [isLogin, setIsLogin] = useState(true);
+    const [formInputsValidity, setFormInputsValidity] = useState({
+        email: true,
+        password: true
+    });
+
+    const emailInputRef = useRef();
+    const passwordInputRef = useRef();
+
+    const clearValidityState = event => {
+        if (event.target.type === 'email') setFormInputsValidity({ ...formInputsValidity, email: true})
+        if (event.target.type === 'password') setFormInputsValidity({ ...formInputsValidity, password: true})
+    }
+
+    const formSubmissionHandler = event => {
+        event.preventDefault();
+        const enteredEmail = emailInputRef.current.value;
+        const enteredPassword = passwordInputRef.current.value;
+
+        const enteredEmailIsValid = !isEmpty(enteredEmail) && isEmailValid(enteredEmail);
+        const enteredPasswordIsValid = !isEmpty(enteredPassword) && isPasswordValid(enteredPassword);
+
+        setFormInputsValidity({
+            email: enteredEmailIsValid,
+            password: enteredPasswordIsValid
+        })
+
+        const formIsValid = enteredEmailIsValid && enteredPasswordIsValid;
+
+        if (!formIsValid) {
+            return;
+        }
+        // send login data here
+    }
 
     const switchAuthModeHandler = () => {
         setIsLogin((prevState) => !prevState);
@@ -11,19 +48,26 @@ const AuthForm = () => {
     return (
         <section className={classes.wrapper}>
             <h4>{isLogin ? 'Login' : 'Sign Up'}</h4>
-            <form>
-                <div className={classes.control}>
+            <form onSubmit={formSubmissionHandler}>
+                <div className={`${classes.control} ${formInputsValidity.email ? '' : classes.invalid}`}>
                     <label htmlFor='email'>Your Email</label>
-                    <input 
+                    <input
+                        ref={emailInputRef}
+                        onFocus={clearValidityState} 
                         type='email' 
-                        id='email' required />
+                        id='email' 
+                    />
+                    {!formInputsValidity.email && <p>Please enter a valid email!</p>}
                 </div>
-                <div className={classes.control}>
+                <div className={`${classes.control} ${formInputsValidity.password ? '' : classes.invalid}`}>
                     <label htmlFor='password'>Your Password</label>
                     <input 
+                        ref={passwordInputRef}
+                        onFocus={clearValidityState}
                         type='password' 
                         id='password' 
-                        required />
+                    />
+                    {!formInputsValidity.password && <p>Password must be 5 characters or more!</p>}
                 </div>
                 <div className={classes.actions}>
                     <button className={`${'btn'} ${classes.btn}`} >{isLogin ? 'Login' : 'Create Account'}</button>

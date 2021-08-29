@@ -18,6 +18,10 @@
   text-align: left;
 }
 
+.control label span {
+  text-transform: lowercase;
+}
+
 .control input {
   width: 100%;
   padding: 0.5rem;
@@ -47,4 +51,14 @@
   font-size: 0.9rem;
   font-weight: 600;
   border: none;
+}
+
+.invalid p {
+  text-align: left;
+  color: var(--clr-red-dark);
+}
+
+.invalid input {
+  border: 1px solid var(--clr-red-light);
+  outline: none;
 }
