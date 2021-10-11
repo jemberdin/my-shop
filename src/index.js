@@ -6,16 +6,19 @@ import App from './App';
 import { ProductsProvider } from './context/products-context';
 import { FilterProvider } from './context/filter-context';
 import { CartProvider } from './context/cart-context';
+import { AuthProvider } from './context/auth-context';
 
 const app = (
   <BrowserRouter>
-    <ProductsProvider>
-      <FilterProvider>
-        <CartProvider>
-          <App />
-        </CartProvider>
-      </FilterProvider>
-    </ProductsProvider>
+    <AuthProvider>
+      <ProductsProvider>
+        <FilterProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </FilterProvider>
+      </ProductsProvider>
+    </AuthProvider>
   </BrowserRouter>
 );
 

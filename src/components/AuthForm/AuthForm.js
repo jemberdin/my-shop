@@ -1,11 +1,13 @@
 import classes from './AuthForm.module.css';
 import { useState, useRef } from 'react';
+import { useAuthContext } from '../../context/auth-context';
 
 const isEmpty = value => value.trim() === '';
 const isEmailValid = email => /\S+@\S+\.\S+/.test(email);
-const isPasswordValid = password => password.trim().length >= 5;
+const isPasswordValid = password => password.trim().length >= 6;
 
 const AuthForm = () => {
+    const { isLoading, loginUser } = useAuthContext();
     const [isLogin, setIsLogin] = useState(true);
     const [formInputsValidity, setFormInputsValidity] = useState({
         email: true,
@@ -39,6 +41,7 @@ const AuthForm = () => {
             return;
         }
         // send login data here
+        loginUser({login: isLogin, email: enteredEmail, password: enteredPassword});
     }
 
     const switchAuthModeHandler = () => {
@@ -67,10 +70,11 @@ const AuthForm = () => {
                         type='password' 
                         id='password' 
                     />
-                    {!formInputsValidity.password && <p>Password must be 5 characters or more!</p>}
+                    {!formInputsValidity.password && <p>Password must be 6 characters or more!</p>}
                 </div>
                 <div className={classes.actions}>
-                    <button className={`${'btn'} ${classes.btn}`} >{isLogin ? 'Login' : 'Create Account'}</button>
+                    {!isLoading && <button className={`${'btn'} ${classes.btn}`} >{isLogin ? 'Login' : 'Create Account'}</button>}
+                    {isLoading && <button disabled={true} className={`${'btn'} ${classes.btn}`} >Loading...</button>}
                     <button
                         type='button'
                         className={classes['toggle-btn']}

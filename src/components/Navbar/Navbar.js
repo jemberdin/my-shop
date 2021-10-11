@@ -5,9 +5,11 @@ import { FaBars } from 'react-icons/fa';
 import { links } from '../../utils/constants';
 import CartButtons from '../CartButtons/CartButtons';
 import { useProductsContext } from '../../context/products-context';
+import { useAuthContext } from '../../context/auth-context';
 
 const Navbar = () => {
     const { openSidebar } = useProductsContext();
+    const { isLoggedIn } = useAuthContext();
 
     return <nav className={classes.navbar}>
         <div className={classes['nav-center']}>
@@ -25,6 +27,9 @@ const Navbar = () => {
                         <Link to={link.url}>{link.text}</Link>
                     </li>
                 ))}
+                {isLoggedIn && <li>
+                    <Link to='/checkout'>checkout</Link>
+                </li>}
             </ul>
             <CartButtons />
         </div>

@@ -1,6 +1,6 @@
 import { Route, Switch } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
-import { Home, About, Cart, Products, SingleProduct, Error, Checkout, Auth } from './pages';
+import { Home, About, Cart, Products, SingleProduct, Error, Checkout, Auth, PrivateRoute } from './pages';
 
 function App() {
   return (
@@ -22,9 +22,9 @@ function App() {
           <Products />
         </Route>
         <Route path='/products/:id' children={<SingleProduct />} />
-        <Route path='/checkout' >
+        <PrivateRoute path='/checkout' >
           <Checkout />
-        </Route>
+        </PrivateRoute>
         <Route path='*'>
           <Error />
         </Route>

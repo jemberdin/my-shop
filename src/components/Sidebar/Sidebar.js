@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom';
 import { links } from '../../utils/constants';
 import CartButtons from '../CartButtons/CartButtons';
 import { useProductsContext } from '../../context/products-context';
+import { useAuthContext } from '../../context/auth-context';
 
 const Sidebar = () => {
     const { isSidebarOpen, closeSidebar } = useProductsContext();
+    const { isLoggedIn } = useAuthContext();
     
     return <aside className={isSidebarOpen ? `${classes.sidebar} ${classes['show-sidebar']}` : classes.sidebar}>
         <div className={classes['sidebar-header']}>
@@ -22,9 +24,9 @@ const Sidebar = () => {
                     <Link to={link.url} onClick={closeSidebar}>{link.text}</Link>
                 </li>
             ))}
-            <li>
+            {isLoggedIn && <li>
                 <Link to='checkout' onClick={closeSidebar}>checkout</Link>
-            </li>
+            </li>}
         </ul>
         <CartButtons style={{display: 'grid', gridTemplateColumns: '1fr 1fr', margin: 'auto', width: '225px'}}/>
     </aside>

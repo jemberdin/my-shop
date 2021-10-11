@@ -45,4 +45,8 @@ export const links = [
   export const products_url = 'https://course-api.com/react-store-products';
 
   export const single_product_url = `https://course-api.com/react-store-single-product?id=`;
+
+  export const signup_url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAtwqr7MHMATFDrRJ2myos8mhPc7hKPkIQ';
+
+  export const login_url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAtwqr7MHMATFDrRJ2myos8mhPc7hKPkIQ';
   

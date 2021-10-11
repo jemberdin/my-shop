@@ -2,9 +2,11 @@ import classes from './CartTotals.module.css';
 import { useCartContext } from '../../context/cart-context';
 import { formatPrice } from '../../utils/helpers';
 import { Link } from 'react-router-dom';
+import { useAuthContext } from '../../context/auth-context';
 
 const CartTotals = () => {
     const {totalAmount, shippingFee} = useCartContext();
+    const { isLoggedIn } = useAuthContext();
 
     return <section className={classes.wrapper}>
         <div>
@@ -18,9 +20,14 @@ const CartTotals = () => {
                     order total: <span>{formatPrice(totalAmount + shippingFee)}</span>
                 </h4>
             </article>
-            <Link to='/checkout' className={`${'btn'} ${classes.btn}`}>
+            {isLoggedIn && <Link to='/checkout' className={`${'btn'} ${classes.btn}`}>
                 proceed to checkout
-            </Link>
+            </Link>}
+            {!isLoggedIn && <Link to='auth'>
+                <button className={`${'btn'} ${classes.btn}`}>
+                    login before checkout
+                </button>
+            </Link>}
         </div>
     </section>
 }
