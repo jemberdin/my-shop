@@ -1,8 +1,11 @@
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import { Home, About, Cart, Products, SingleProduct, Error, Checkout, Auth, PrivateRoute } from './pages';
+import { useAuthContext } from './context/auth-context';
 
-function App() {
+const App = () => {
+  const { isLoggedIn } = useAuthContext(); 
+
   return (
     <Layout>
       <Switch>
@@ -12,8 +15,8 @@ function App() {
         <Route path='/about' >
           <About />
         </Route>
-        <Route path='/auth'>
-          <Auth />
+         <Route path='/auth'>
+          {!isLoggedIn ? <Auth /> : <Redirect to='/'/>}
         </Route>
         <Route path='/cart'>
           <Cart />

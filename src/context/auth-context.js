@@ -10,10 +10,9 @@ export const AuthProvider = (props) => {
     const history = useHistory();
     const initialState = {
         isLoading: false,
-        token: '',
-        isLoggedIn: false
+        token: localStorage.getItem('token'),
+        isLoggedIn: !!localStorage.getItem('token')
     };
-
     const [state, dispatch] = useReducer(reducer, initialState);
 
     const loginUser = async ({login, email, password}) => {
@@ -35,6 +34,7 @@ export const AuthProvider = (props) => {
                 throw new Error(data.error.message)
             } else {
                 dispatch({ type: USER_LOGIN_SUCCESS, payload: data});
+                localStorage.setItem('token', data.idToken)
                 history.replace('/');
             }
         } catch (error) {
@@ -45,6 +45,7 @@ export const AuthProvider = (props) => {
 
     const logoutUser = () => {
         dispatch({ type: USER_LOGOUT});
+        localStorage.removeItem('token');
     }
 
     return (
