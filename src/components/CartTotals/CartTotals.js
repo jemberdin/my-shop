@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useAuthContext } from '../../context/auth-context';
 
 const CartTotals = () => {
-    const {totalAmount, shippingFee} = useCartContext();
+    const { totalAmount, shippingFee } = useCartContext();
     const { isLoggedIn } = useAuthContext();
 
     return <section className={classes.wrapper}>
